@@ -1,6 +1,10 @@
 heroku-buildpack-vips
 =====================
 
+[![Vips 8.17.3](https://img.shields.io/badge/vips-8.17.3-blue)](https://github.com/Newlywords/heroku-buildpack-vips/releases)
+[![Heroku 22](https://img.shields.io/badge/stack-22-904edf?logo=heroku)](https://github.com/Newlywords/heroku-buildpack-vips/releases)
+[![Heroku 24](https://img.shields.io/badge/stack-24-904edf?logo=heroku)](https://github.com/Newlywords/heroku-buildpack-vips/releases)
+
 ## Disclaimer
 
 If you don't need the `vips` binary, and you also don't need the latest version of vips, you might not need this
@@ -15,11 +19,16 @@ comment](https://github.com/Newlywords/heroku-buildpack-vips/issues/36#issuecomm
 The brief usage of pdfium that started August 2023 ended September 17, 2023. The buildpack is using poppler again due
 to https://github.com/Newlywords/heroku-buildpack-vips/issues/41#issuecomment-1722462354.
 
-As of heroku-20 and heroku-22, the following packages are already installed and don't need to be installed using an
-Aptfile:
+## Dependencies
 
-- libglib2.0-0
-- libglib2.0-dev
+This buildpack includes all necessary runtime dependencies. The following libraries are bundled from source when not available in the stack:
+
+**heroku-22:**
+- libarchive 3.6.0
+
+**heroku-24:**
+- libgsf 1.14.53
+- liborc 0.4.32
 
 Found out more information like this in [the changelog](CHANGES.md).
 
@@ -28,8 +37,8 @@ Found out more information like this in [the changelog](CHANGES.md).
 A VIPS buildpack for the modern Heroku stacks. This stack supports the following
 stacks:
 
-- heroku-20
 - heroku-22
+- heroku-24
 
 If you have problems on any of these stacks, or if a new stack comes out that is
 unsupported, please file an issue.
